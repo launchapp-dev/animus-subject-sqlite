@@ -1,0 +1,28 @@
+schema = "animus.plugin.v1"
+name = "animus-subject-sqlite"
+version = "0.1.0"
+plugin_kind = "subject_backend"
+description = "Local SQLite subject backend"
+
+[capabilities]
+streaming = true
+progress = false
+cancellation = false
+
+[binary]
+default = "animus-subject-sqlite"
+
+[[env]]
+key = "ANIMUS_SQLITE_DB_PATH"
+description = "Path to the SQLite database file (default: <project_root>/.animus/subjects/sqlite.db)"
+required = false
+
+[[env]]
+key = "ANIMUS_SQLITE_KINDS"
+description = "Comma-separated subject kinds this backend serves (default: task)"
+required = false
+
+[[env]]
+key = "ANIMUS_SQLITE_AUTO_MIGRATE"
+description = "Run schema migrations on startup (default: true)"
+required = false

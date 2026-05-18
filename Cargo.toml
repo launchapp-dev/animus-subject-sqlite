@@ -1,0 +1,40 @@
+[package]
+name = "animus-subject-sqlite"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Local SQLite subject backend plugin for Animus — owns the data, supports create, watch, full CRUD"
+repository = "https://github.com/launchapp-dev/animus-subject-sqlite"
+homepage = "https://github.com/launchapp-dev/animus-cli"
+readme = "README.md"
+default-run = "animus-subject-sqlite"
+
+[lib]
+name = "animus_subject_sqlite"
+path = "src/lib.rs"
+
+[[bin]]
+name = "animus-subject-sqlite"
+path = "src/main.rs"
+
+[dependencies]
+animus-plugin-protocol  = { git = "https://github.com/launchapp-dev/animus-protocol", branch = "main" }
+animus-subject-protocol = { git = "https://github.com/launchapp-dev/animus-protocol", branch = "main" }
+animus-plugin-runtime   = { git = "https://github.com/launchapp-dev/animus-protocol", branch = "main" }
+
+sqlx = { version = "0.8", default-features = false, features = ["runtime-tokio-rustls", "sqlite", "macros", "chrono"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "fs"] }
+tokio-stream = { version = "0.1", features = ["sync"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+chrono = { version = "0.4", features = ["serde"] }
+ulid = { version = "1", features = ["serde"] }
+async-trait = "0.1"
+futures = "0.3"
+anyhow = "1"
+thiserror = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[dev-dependencies]
+tempfile = "3"
