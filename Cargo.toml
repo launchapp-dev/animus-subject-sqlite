@@ -1,6 +1,6 @@
 [package]
 name = "animus-subject-sqlite"
-version = "0.1.3"
+version = "0.1.4"
 edition = "2021"
 license = "MIT"
 description = "Local SQLite subject backend plugin for Animus — owns the data, supports create, watch, full CRUD"
@@ -18,9 +18,9 @@ name = "animus-subject-sqlite"
 path = "src/main.rs"
 
 [dependencies]
-animus-plugin-protocol  = { git = "https://github.com/launchapp-dev/animus-protocol", tag = "v0.1.4" }
-animus-subject-protocol = { git = "https://github.com/launchapp-dev/animus-protocol", tag = "v0.1.4" }
-animus-plugin-runtime   = { git = "https://github.com/launchapp-dev/animus-protocol", tag = "v0.1.4" }
+animus-plugin-protocol  = { git = "https://github.com/launchapp-dev/animus-protocol", tag = "v0.1.8" }
+animus-subject-protocol = { git = "https://github.com/launchapp-dev/animus-protocol", tag = "v0.1.8" }
+animus-plugin-runtime   = { git = "https://github.com/launchapp-dev/animus-protocol", tag = "v0.1.8" }
 
 sqlx = { version = "0.8", default-features = false, features = ["runtime-tokio-rustls", "sqlite", "macros", "chrono"] }
 tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "fs"] }
