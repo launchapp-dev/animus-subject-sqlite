@@ -1,6 +1,6 @@
 schema = "animus.plugin.v1"
 name = "animus-subject-sqlite"
-version = "0.1.0"
+version = "0.1.4"
 plugin_kind = "subject_backend"
 description = "Local SQLite subject backend"
 
@@ -8,6 +8,20 @@ description = "Local SQLite subject backend"
 streaming = true
 progress = false
 cancellation = false
+subject_kinds = ["task"]
+methods = [
+  "task/list",
+  "task/get",
+  "task/update",
+  "task/schema",
+  "task/watch",
+  "subject/list",
+  "subject/get",
+  "subject/update",
+  "subject/schema",
+  "subject/watch",
+  "health/check",
+]
 
 [binary]
 default = "animus-subject-sqlite"

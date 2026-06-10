@@ -243,7 +243,10 @@ impl SqliteStore {
         }
 
         let next_cursor = if has_more {
-            subjects.last().map(|s| s.id.as_str().to_string())
+            rows.get(take.saturating_sub(1))
+                .map(|row| row.try_get::<String, _>("id"))
+                .transpose()
+                .map_err(map_sqlx_err)?
         } else {
             None
         };
